@@ -52,7 +52,7 @@ useEffect(() => {
             <Col lg={6}>
               <div className="left">
                 <div className="row px-3 justify-content-center mt-4 mb-5 border-line">
-                  <img src="https://i.imgur.com/uNGdWHi.png" className="img-fluid" alt="Illustration" />
+                  <img src="/register.png" className="img-fluid animated-img" alt="Illustration" />
                 </div>
               </div>
             </Col>
@@ -105,7 +105,7 @@ useEffect(() => {
 
                   {/* Login Button */}
                   <div className="row mb-3 px-3">
-                    <button type="submit" className="btn" disabled={isSubmitting}>
+                    <button type="submit" className="btn" disabled={ isSubmitting }>
                       {isSubmitting ? "Register..." : "REGISTER"}
                     </button>
                   </div>

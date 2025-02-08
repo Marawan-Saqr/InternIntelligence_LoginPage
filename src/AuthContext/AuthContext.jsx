@@ -16,7 +16,10 @@ const AuthContextProvider = ({ children }) => {
   // Login Function
   const handleLogin = async (data) => {
     try {
-      await signInWithEmailAndPassword(auth, data.email, data.password);
+      let userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
+      const user = userCredential.user;
+      let keyGenerated = await user.getIdToken();
+      localStorage.setItem("userToken", JSON.stringify(keyGenerated));
       if (rememberMe) {
         localStorage.setItem("email", data.email);
         localStorage.setItem("password", data.password);
@@ -43,7 +46,6 @@ const AuthContextProvider = ({ children }) => {
   };
 
 
-  // Register Function
   const handleRegister = async (data) => {
     try {
       await createUserWithEmailAndPassword(auth, data.email, data.password);
@@ -54,24 +56,46 @@ const AuthContextProvider = ({ children }) => {
         localStorage.removeItem("email");
         localStorage.removeItem("password");
       }
-      Swal.fire({
-        title: "Register Successful",
-        text: "You Will Be Direct To Login",
-        icon: "success",
-        confirmButtonText: "OK",
-        draggable: true,
-      }).then(() => {
+      Swal.fire("Success", "Registration complete! Redirecting to login...", "success").then(() => {
         navigate("/auth/login");
       });
+  
     } catch (error) {
-      Swal.fire({
-        title: "Register Failed",
-        text: "Something Wrong. Please try again.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
+      if (error.code === "auth/email-already-in-use") {
+        Swal.fire("Error", "This email is already registered. Try logging in instead.", "error");
+      } else {
+        Swal.fire("Error", "Something went wrong. Please try again.", "error");
+      }
     }
   };
+
+
+  // Logout Function
+  const logout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be logged out!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, logout!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.clear();
+        Swal.fire({
+          title: "Logged Out",
+          text: "You have been successfully logged out.",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then(() => {
+          navigate("/auth/login");
+        });
+      }
+    });
+  };
+
+
 
 
   const handleForgotPassword = async (email) => {
@@ -95,7 +119,7 @@ const AuthContextProvider = ({ children }) => {
 
 
   return (
-    <authContext.Provider value={{ handleRegister, handleLogin, handleForgotPassword, rememberMe, setRememberMe }}>
+    <authContext.Provider value={{ handleRegister, handleLogin, handleForgotPassword, logout, rememberMe, setRememberMe }}>
       {children}
     </authContext.Provider>
   );

@@ -1,5 +1,4 @@
 /* Globals Styles */
-
 :root {
   --primary: #7d2ae8;
   --primary-hover: #39067c;
@@ -60,4 +59,43 @@ input:focus, textarea:focus {
 
 .border-line {
   border-right: 1px solid #a0a0a0;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+}
+  50% {
+    transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+}
+  100% {
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+}
+}
+
+.animated-img {
+  animation: moveUpDown 3s ease-in-out infinite;
+}
+
+
+/* Media Query */
+@media (max-width: 767px) {
+  .actions {
+    flex-direction: column;
+  }
+  .actions .right-action {
+    margin-top: 20px;
+  }
 }

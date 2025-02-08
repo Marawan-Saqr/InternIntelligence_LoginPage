@@ -67,7 +67,7 @@ const Login = () => {
             <Col lg={6}>
               <div className="left">
                 <div className="row px-3 justify-content-center mt-4 mb-5 border-line">
-                  <img src="https://i.imgur.com/uNGdWHi.png" className="img-fluid" alt="Illustration" />
+                  <img src="https://i.imgur.com/uNGdWHi.png" className="img-fluid animated-img" alt="Illustration" />
                 </div>
               </div>
             </Col>
