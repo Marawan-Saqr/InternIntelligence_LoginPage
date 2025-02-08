@@ -11,6 +11,11 @@ body {
   font-weight: 900;
 }
 
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
 a {
   text-decoration: none;
   color: var(--white);
@@ -25,8 +30,7 @@ input {
   padding: 10px 12px 10px 12px;
   border: 1px solid lightgrey;
   border-radius: 2px;
-  margin-bottom: 5px;
-  margin-top: 2px;
+  
   box-sizing: border-box;
   color: #2C3E50;
   font-size: 14px;

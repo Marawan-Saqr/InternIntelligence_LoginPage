@@ -1,24 +1,27 @@
+import AuthContextProvider from "./AuthContext/AuthContext.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from './Components/Login-page/LoginPage.jsx';
-import Login from './Components/Login-page/Login/Login.jsx';
-import NotFound from './Components/Not-found/NotFound.jsx';
-
+import Home from "./Components/Home/Home.jsx";
+import LoginPage from "./Components/Auth/Auth.jsx";
+import Login from "./Components/Auth/Login/Login.jsx";
+import Register from "./Components/Auth/Register/Register.jsx";
+import NotFound from "./Components/Not-found/NotFound.jsx";
 
 function App() {
-
-
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LoginPage />}>
-          <Route index element={<Login />} />
-          <Route path="login" element={<Login />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <AuthContextProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="auth" element={<LoginPage />}>
+            <Route index element={<Login />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AuthContextProvider>
     </BrowserRouter>
-  )
+  );
 }
-
 
 export default App;
