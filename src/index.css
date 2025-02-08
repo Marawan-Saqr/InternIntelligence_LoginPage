@@ -1,0 +1,59 @@
+/* Globals Styles */
+
+:root {
+  --primary: #7d2ae8;
+  --primary-hover: #39067c;
+  --text-color: #fff;
+}
+
+body {
+  font-family: "Almarai", serif;
+  font-weight: 900;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+::placeholder {
+  color: #4e4e4e;
+  font-weight: 300
+}
+
+input {
+  padding: 10px 12px 10px 12px;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  margin-bottom: 5px;
+  margin-top: 2px;
+  box-sizing: border-box;
+  color: #2C3E50;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+  border: 1px solid var(--primary);
+  outline: none;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+
+.border-line {
+  border-right: 1px solid #a0a0a0;
+}

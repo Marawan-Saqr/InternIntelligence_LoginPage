@@ -1,0 +1,8 @@
+.not-found button {
+  background-color: var(--primary);
+}
+
+.not-found button:hover {
+  background-color: var(--primary-hover);
+  
+}

@@ -1,0 +1,34 @@
+.login .right h1 {
+  padding: 0px;
+  margin: 0px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.login .right label {
+  padding: 0px;
+  font-weight: bold;
+}
+
+.login .right button {
+  background-color: var(--primary);
+  color: var(--text-color);
+}
+
+.login .right button:hover {
+  background-color: var(--primary-hover);
+}
+
+.login .right h6 {
+  padding: 0px;
+  font-weight: bold;
+}
+
+.login .footer {
+  background-color: var(--primary);
+  color: var(--text-color);
+}
+
+.login .footer h5 {
+  margin: 0px;
+}
